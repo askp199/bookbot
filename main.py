@@ -10,7 +10,8 @@ def main():
     def word_count():
         words = file_contents.split()
         count = len(words)
-        print(count)
+        return count
+
 
     def letter_count():
         lower_case_file = file_contents.lower()
@@ -24,7 +25,24 @@ def main():
             else: 
                 letter_count_dict[i] = 1
         
-        print(letter_count_dict)
+        return letter_count_dict
+    
+    def report():
+        word = word_count()
+        letter = letter_count()
+        list_dict = []
+        for i, val in letter.items():
+            key = f"{i}"
+            if i.isalpha():
+                new_dict = {}
+                new_dict[key]=val
+                list_dict.append(new_dict)
+        
+        print(list_dict)
+    
+    report()
+
+
 
 
 if __name__ == '__main__':
